@@ -1,0 +1,33 @@
+{
+  "name": "ats-client-tagging",
+  "version": "1.0.0",
+  "description": "ATS Client Tagging Library",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Hodes-Inc/STS.ATS.Tag.Library.git"
+  },
+  "author": "Denny Riadi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hodes-Inc/STS.ATS.Tag.Library/issues"
+  },
+  "homepage": "https://github.com/Hodes-Inc/STS.ATS.Tag.Library#readme",
+  "dependencies": {
+    "query-string": "^4.3.2"
+  },
+  "devDependencies": {
+    "browserify": "^14.1.0",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-uglify": "^2.1.2",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

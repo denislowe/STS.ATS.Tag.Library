@@ -1,0 +1,5 @@
+/.idea/
+/ats-client-tagging/node_modules/
+/ats-client-tagging/test/dist/
+/ats-client-tagging/test/test_reports/
+/ats-client-tagging/dist
