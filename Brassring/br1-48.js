@@ -151,14 +151,20 @@
             var ctx = canvas.getContext("2d");
             var txt = "http://www.app-cast.com";
             ctx.textBaseline = "top";
-            ctx.font = "14px 'Arial'";
             ctx.textBaseline = "alphabetic";
             ctx.fillStyle = "#f60";
-            ctx.fillRect(125, 1, 62, 20);
+            try {
+                ctx.font = "14px 'Arial'";
+                ctx.fillRect(125, 1, 62, 20)
+            } catch (ex) {}
             ctx.fillStyle = "#069";
-            ctx.fillText(txt, 2, 15);
+            try {
+                ctx.fillText(txt, 2, 15)
+            } catch (ex$0) {}
             ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
-            ctx.fillText(txt, 4, 17);
+            try {
+                ctx.fillText(txt, 4, 17)
+            } catch (ex$1) {}
             return canvas.toDataURL()
         }
     };
@@ -167,58 +173,51 @@
             var reqNum = getReqNum(),
                 now = (new Date).getTime(),
                 random = Math.random() * 99999999999,
+                fp = null,
+                jobSeekerId = getJobSeekerId();
+            try {
                 fp = (new Fingerprint({
                     canvas: true
-                })).get(),
-                jobSeekerId = getJobSeekerId();
+                })).get()
+            } catch (e) {}
             window.acCookieSource = "null";
-            window.acPixel = true;
-            window.acEmployerId = '&e=1755'
-        } catch (e) {}
+            window.acPixel = false;
+            window.acEmployerId = '&e=48'
+        } catch (e$2) {}
         try {
             saveReqNumToSessionStorage(reqNum);
-            var img = document.createElement("iframe");
-            action = "br-te8/a31";;
-            var url = "https://pixel.appcast.io/" + action + "?r=" + encodeURIComponent(document.referrer) + (reqNum ? "&jid=" + reqNum : "") + "&tn=" + now + "&rn=" + random + "&fp=" + fp + window.acEmployerId;
-            if (jobSeekerId) url += "&jsid=" + jobSeekerId;
+            var img = document.createElement("img"),
+                action = "br-te8/a31";;
+            var url = "https://click.appcast.io/" + action + ".png?r=" + encodeURIComponent(document.referrer) + (reqNum ? "&jid=" + reqNum : "") + "&tn=" + now + "&rn=" + random + "&fp=" + fp + window.acEmployerId;
+            if (jobSeekerId) url += "&jobseekerid=" + jobSeekerId;
             img.src = url;
             img.style.display = "none";
             document.body.appendChild(img);
             if (/te8\/a31/i.test(action)) window.acAction = 0;
-            else if (/ue8\/a7/i.test(action)) window.acAction = 1;
+            else if (/ue8\/a7/i.test(action)) window.acAction =
+                1;
             else if (/9k\/a17/i.test(action)) window.acAction = 2;
             writeGtm()
-        } catch (e$0) {}
+        } catch (e$3) {}
     });
 
     function getReqNum() {
         var match = null,
             reqNum = null;
-        if (location.href.match(/partnerid=25782/i) && location.href.match(/siteid=5121/i)) {
-            if (reqNum = document.getElementById("Auto req ID")) reqNum = reqNum.innerHTML
-        } else if (match = location.href.match(/jobid=(\w+)/i) || location.href.match(/areq=(\w+)/i)) reqNum = match[1];
-        var buttons = document.getElementsByTagName("a");
-        if (buttons)
-            for (var i = 0; i < buttons.length; i++) {
-                var link = buttons[i];
-                if (link.className && link.className.indexOf("job-apply") != -1 && link.href && /sjobs\.brassring\.com/i.test(link.href))
-                    if (match =
-                        link.href.match(/jobid=(\d+)/i)) {
-                        reqNum = match[1];
-                        break
-                    }
-            }
+        if (match = location.href.match(/jobid=(\d+)/i)) reqNum = match[1];
         return reqNum
     }
 
     function getJobSeekerId() {
         var jobSeekerId = "";
         if (jobSeekerId) return jobSeekerId;
+        if (typeof dataLayer !== "undefined" && dataLayer && dataLayer[4] && dataLayer[4].BruId) return dataLayer[4].BruId;
         return ""
     }
 
     function generateUserToken() {
-        return (new Date).getTime() + (Math.random() * Math.random()).toString(36).substr(2, 9)
+        return (new Date).getTime() + (Math.random() * Math.random()).toString(36).substr(2,
+            9)
     }
 
     function writeGtm() {
