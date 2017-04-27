@@ -36,4 +36,7 @@ var atsClients = {
 5. Update the script tag in the ATS
 ```html
 <script type='text/javascript' id="stcTag" src='../dist/stcats.js?ats=new-ats'></script>
+
+<!-- Load the tag script by providing the app ID, applicant ID, and action -->
+<script type='text/javascript' id="stcTag" src='../dist/stcats.js?ats=new-ats&aid=test_app_id&applicantid=12345&action=App_Start'></script>
 ```
