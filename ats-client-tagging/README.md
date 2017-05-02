@@ -16,8 +16,15 @@ The Javascript API file will be available in *ats-client-tagging/dist/stcats.js*
 ## Example Usage
 
 ```html
-<script type='text/javascript' id="stcTag" src='../dist/stcats.js?ats={ATS}&aid=test-denny&applicantid=12345'></script>
+<script type='text/javascript' id="stcTag" src='../dist/stcats.js?ats={ATS}&aid=test_app_id&applicantid=12345&action={complete|start}'></script>
 ```
+
+On browser page ready event, the tag library performs the following actions:
+1. Finds script tag with ID equals to "stcTag" (**NOTE: it is important not to use different ID value**) and extract the query parameters within the *src* attribute.
+2. Based on the *ats* query parameter, the library loads a specific ATS implementation. Please see the next section for more information.
+3. Parse the information defined in query parameters and forwards the event to STC Snowplow's collector by sending an HTTP request to the collector API endpoint.
+
+
 
 ## How to?
 
@@ -35,8 +42,8 @@ var atsClients = {
 ```
 5. Update the script tag in the ATS
 ```html
-<script type='text/javascript' id="stcTag" src='../dist/stcats.js?ats=new-ats'></script>
+<script type='text/javascript' id="stcTag" src='../dist/stcats.js?ats=kenexa'></script>
 
 <!-- Load the tag script by providing the app ID, applicant ID, and action -->
-<script type='text/javascript' id="stcTag" src='../dist/stcats.js?ats=new-ats&aid=test_app_id&applicantid=12345&action=App_Start'></script>
+<script type='text/javascript' id="stcTag" src='../dist/stcats.js?ats=kenexa&aid=test_app_id&applicantid=12345&action=App_Start'></script>
 ```
