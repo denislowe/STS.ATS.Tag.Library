@@ -32,7 +32,7 @@ KenexaV2.prototype.getReqId = function() {
     return window.document.getElementById('Auto req ID').innerHTML;
   }
 
-  match = window.location.href.match(/jobid=(\w+)/i) || window.location.href.match(/areq=(\w+)/i);
+  match = window.location.href.match(/jobid=(\w+)/i) || window.location.href.match(/AReq=(\w+)/i);
   if (match) {
     return match[1];
   }
