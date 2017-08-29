@@ -10,7 +10,7 @@ function PageUp(collectorUrl, collectorDefaultQueryParams, params) {
 util.inherits(PageUp, BaseAts);
 
 PageUp.prototype.getReqId = function() {
-  var match = window.location.href.match(/lJobID=(\w+)/i);
+  var match = window.location.href.toLowerCase().match(/ljobid=(\w+)/i);
   if (match) {
     return match[1];
   }
@@ -19,7 +19,7 @@ PageUp.prototype.getReqId = function() {
 };
 
 PageUp.prototype.getApplicantId = function() {
-  var match = window.location.href.match(/lApplicationID=(\w+)/i);
+  var match = window.location.href.toLowerCase().match(/lapplicationid=(\w+)/i);
   if (match) {
     return match[1];
   }
