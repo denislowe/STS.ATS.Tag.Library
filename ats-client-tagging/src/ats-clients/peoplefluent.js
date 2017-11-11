@@ -14,7 +14,7 @@ PeopleSoft.prototype.getReqId = function() {
 
   for (var i = 0; i < spans.length; i++) {
     if (spans[i].className !== 'pagesubheading') {
-      break;
+      continue;
     }
 
     var match = spans[i].innerHTML.trim().match(/(\d+)$/);
