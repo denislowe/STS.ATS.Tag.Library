@@ -5,7 +5,8 @@
 var atsClients = {
   'kenexa': require('./kenexa'),
   'kenexa2': require('./kenexa-v2'),
-  'pageup': require('./pageup')
+  'pageup': require('./pageup'),
+  'peoplefluent': require('./peoplefluent')
 };
 
 module.exports = function(clientName) {
