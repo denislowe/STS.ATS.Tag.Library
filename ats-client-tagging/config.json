@@ -1,4 +1,4 @@
 {
-  "collectorUrl": "http://d.hodes.com/i",
+  "collectorUrl": "https://d.hodes.com/i",
   "collectorDefaultQueryParams": "?tv=pixel_tracker&p=web&e=se&se_ca=conversion"
 }
