@@ -10,20 +10,9 @@ function PeopleSoft(collectorUrl, collectorDefaultQueryParams, params) {
 util.inherits(PeopleSoft, BaseAts);
 
 PeopleSoft.prototype.getReqId = function() {
-  var spans = document.getElementsByTagName('span');
-
-  for (var i = 0; i < spans.length; i++) {
-    if (spans[i].className !== 'pagesubheading') {
-      continue;
-    }
-
-    var match = spans[i].innerHTML.trim().match(/(\d+)$/);
-    if (match) {
-      return match[1];
-    }
-  }
-
-  return '';
+  var element = document.getElementById('HRS_APP_RCMNT_I_HRS_JOB_OPENING_ID$0');
+  var jobId = element && (element.innerText || element.textContent).trim();
+  return jobId || '';
 };
 
 module.exports = PeopleSoft;
